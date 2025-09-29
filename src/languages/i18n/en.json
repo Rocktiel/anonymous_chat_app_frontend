@@ -2,5 +2,35 @@
   "en": "English",
   "tr": "Turkish",
   "hello": "Hello",
-  "welcome": "Welcome to our application!"
+  "welcome": "Welcome to our application!",
+  "loading": "Loading...",
+  "onboarding": {
+    "skip": "Skip",
+    "back": "Back",
+    "next": "Next",
+    "start": "Start",
+    "step1_title": "Welcome",
+    "step1_desc": "Start exploring our app!",
+    "step2_title": "Manage Chats",
+    "step2_desc": "Manage your conversations, answers and pending conversations easily.",
+    "step3_title": "Get Notified",
+    "step3_desc": "Get notified about important updates.",
+    "step4_title": "Ready to Start?",
+    "step4_desc": "You're all set up! Log in and continue now!"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "button": "Login",
+    "no_account": "Don't have an account? Register"
+  },
+  "register": {
+    "title": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "button": "Register",
+    "have_account": "Already have an account? Login"
+  }
 }

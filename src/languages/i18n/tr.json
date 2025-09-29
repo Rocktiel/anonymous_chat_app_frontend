@@ -2,5 +2,45 @@
   "en": "İngilizce",
   "tr": "Türkçe",
   "hello": "Merhaba",
-  "welcome": "Uygulamamıza hoş geldiniz!"
+  "welcome": "Uygulamamıza hoş geldiniz!",
+  "loading": "Yükleniyor...",
+  "onboarding": {
+    "skip": "Geç",
+    "back": "Geri",
+    "next": "İleri",
+    "start": "Başla",
+    "step1_title": "Hoş Geldiniz",
+    "step1_desc": "Uygulamamızı keşfetmeye başla!",
+    "step2_title": "Sohbetleri Yönet",
+    "step2_desc": "Aktif, cevaplanan ve bekleyen sohbetlerini kolayca takip et.",
+    "step3_title": "Bildirim Al",
+    "step3_desc": "Önemli gelişmelerden anında haberdar ol.",
+    "step4_title": "Başlamaya Hazır mısın?",
+    "step4_desc": "Hemen giriş yap ve devam et!"
+  },
+  "login": {
+    "title": "Giriş Yap",
+    "email": "E-posta",
+    "password": "Parola",
+    "button": "Giriş Yap",
+    "no_account": "Hesabınız yok mu? Kayıt Ol"
+  },
+  "register": {
+    "title": "Kayıt Ol",
+    "email": "E-posta",
+    "password": "Parola",
+    "confirm_password": "Parolayı Onayla",
+    "button": "Kayıt Ol",
+    "have_account": "Zaten bir hesabınız var mı? Giriş Yap"
+  },
+  "chat": {
+    "title": "Sohbet",
+    "input_placeholder": "Mesajınızı yazın...",
+    "send_button": "Gönder"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "logout": "Çıkış Yap"
+  }
 }
