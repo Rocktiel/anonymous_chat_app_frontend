@@ -1,45 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// import { Text } from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+// function App() {
+//   return <Text>Hello World</Text>;
+// }
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+// export default App;
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import I18nProvider, { useI18n } from './src/languages/I18nProvider';
+
+function HomeScreen() {
+  const { t, setLocale, locale } = useI18n();
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>{t('hello')}</Text>
+      <Text>{t('welcome')}</Text>
+      <Text>Current: {locale}</Text>
+      <Button title="Switch to EN" onPress={() => setLocale('en')} />
+      <Button title="Switch to TR" onPress={() => setLocale('tr')} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
+export default function App() {
+  return (
+    <I18nProvider>
+      <HomeScreen />
+    </I18nProvider>
+  );
+}
