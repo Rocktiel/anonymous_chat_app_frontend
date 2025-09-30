@@ -8,8 +8,10 @@ import SplashScreen from '../screens/SplashScreen';
 import { View, Text, Button } from 'react-native';
 import { useI18n } from '../languages/I18nProvider';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import { useThemeProvider } from '../lib/theme/ThemeProvider';
 
 export default function AppNavigator() {
+  const { theme } = useThemeProvider();
   const [isLoading, setIsLoading] = useState(true);
   const [isOnboardingDone, setIsOnboardingDone] = useState<boolean | null>(
     null,
@@ -47,7 +49,7 @@ export default function AppNavigator() {
   if (isOnboardingDone === null) return null;
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       {!isOnboardingDone ? (
         <OnboardingNavigator onComplete={handleOnboardingComplete} />
       ) : !isLoggedIn ? (
