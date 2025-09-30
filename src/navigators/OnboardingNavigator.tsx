@@ -1,21 +1,17 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnboardingScreen from '../screens/Onboarding/OnboardingScreen';
 
-const Stack = createNativeStackNavigator();
-
-type OnboardingNavigatorProps = {
-  onComplete: () => void;
+export type OnboardingStackParamList = {
+  OnboardingMain: undefined;
 };
 
-export default function OnboardingNavigator({
-  onComplete,
-}: OnboardingNavigatorProps) {
+const Stack = createNativeStackNavigator<OnboardingStackParamList>();
+
+export default function OnboardingNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Onboarding">
-        {props => <OnboardingScreen {...props} onComplete={onComplete} />}
-      </Stack.Screen>
+      <Stack.Screen name="OnboardingMain" component={OnboardingScreen} />
     </Stack.Navigator>
   );
 }

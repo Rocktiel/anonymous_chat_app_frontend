@@ -1,78 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import OnboardingNavigator from './OnboardingNavigator';
 import AuthNavigator from './AuthNavigator';
-import SplashScreen from '../screens/SplashScreen';
-// import MainNavigator from './MainNavigator';
-import { View, Text, Button } from 'react-native';
-import { useI18n } from '../languages/I18nProvider';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import MainNavigator from './MainNavigator';
+
 import { useThemeProvider } from '../lib/theme/ThemeProvider';
+import SplashScreen from '../screens/SplashScreen';
+import { useAuth } from '../lib/AuthContext';
+
+export type RootStackParamList = {
+  Onboarding: undefined;
+  Auth: undefined;
+  Main: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
   const { theme } = useThemeProvider();
+  const { isLoggedIn } = useAuth();
   const [isLoading, setIsLoading] = useState(true);
   const [isOnboardingDone, setIsOnboardingDone] = useState<boolean | null>(
     null,
   );
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     (async () => {
       const onboard = await AsyncStorage.getItem('onboarding_done');
-      console.log('onboard', onboard);
       setIsOnboardingDone(!!onboard);
-      // setIsOnboardingDone(false);
-      // örnek auth kontrolü
-      const token = await AsyncStorage.getItem('token');
-      setIsLoggedIn(!!token);
-      // setIsLoggedIn(true);
+      setIsLoading(false);
     })();
   }, []);
-
-  const handleOnboardingComplete = async () => {
-    await AsyncStorage.setItem('onboarding_done', 'true');
-    setIsOnboardingDone(true);
-  };
-
   const handleSplashFinish = () => {
     setIsLoading(false);
   };
-
-  // Splash screen göster
-  if (isLoading) {
-    return <SplashScreen onFinish={handleSplashFinish} />;
-  }
-
-  // Veri yükleniyor
-  if (isOnboardingDone === null) return null;
+  if (isLoading) return <SplashScreen onFinish={handleSplashFinish} />;
 
   return (
     <NavigationContainer theme={theme}>
-      {!isOnboardingDone ? (
-        <OnboardingNavigator onComplete={handleOnboardingComplete} />
-      ) : !isLoggedIn ? (
-        <AuthNavigator />
-      ) : (
-        // <MainNavigator />
-        <HomeScreen />
-      )}
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {!isOnboardingDone ? (
+          <Stack.Screen name="Onboarding" component={OnboardingNavigator} />
+        ) : !isLoggedIn ? (
+          <Stack.Screen name="Auth" component={AuthNavigator} />
+        ) : (
+          <Stack.Screen name="Main" component={MainNavigator} />
+        )}
+      </Stack.Navigator>
     </NavigationContainer>
-  );
-}
-
-function HomeScreen() {
-  const { t, setLocale, locale } = useI18n();
-
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>{t('hello')}</Text>
-      <Text>{t('welcome')}</Text>
-      <Text>Current: {locale}</Text>
-      <Button title="Switch to EN" onPress={() => setLocale('en')} />
-      <Button title="Switch to TR" onPress={() => setLocale('tr')} />
-      <LanguageSwitcher />
-    </View>
   );
 }

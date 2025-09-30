@@ -8,35 +8,36 @@ import {
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ONBOARDING_STEP_KEYS } from './data';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigators/AppNavigator';
 import { useI18n } from '../../languages/I18nProvider';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import { ONBOARDING_STEP_KEYS } from './data';
 
 const { width } = Dimensions.get('window');
 
-type OnboardingScreenProps = {
-  onComplete: () => void;
-};
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-export default function OnboardingScreen({
-  onComplete,
-}: OnboardingScreenProps) {
+export default function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const { t } = useI18n();
+  const navigation = useNavigation<NavigationProp>();
+
+  const finishOnboarding = async () => {
+    await AsyncStorage.setItem('onboarding_done', 'true');
+    navigation.reset({ index: 0, routes: [{ name: 'Auth' }] });
+  };
 
   const handleNext = () => {
     if (currentIndex < ONBOARDING_STEP_KEYS.length - 1) {
       flatListRef.current?.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      onComplete();
+      finishOnboarding();
     }
   };
-
-  const handleSkip = () => {
-    onComplete();
-  };
-
   const handlePrev = () => {
     if (currentIndex > 0) {
       flatListRef.current?.scrollToIndex({ index: currentIndex - 1 });
@@ -49,14 +50,13 @@ export default function OnboardingScreen({
       <Text style={styles.desc}>{t(item.descriptionKey)}</Text>
     </View>
   );
-
   return (
     <SafeAreaView style={styles.container}>
       {/* ✅ Üst bar */}
       <View style={styles.topBar}>
         <LanguageSwitcher />
 
-        <TouchableOpacity onPress={handleSkip}>
+        <TouchableOpacity onPress={finishOnboarding}>
           <Text style={styles.skip}>{t('onboarding.skip')}</Text>
         </TouchableOpacity>
       </View>

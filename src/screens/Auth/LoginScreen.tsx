@@ -1,40 +1,3 @@
-// import { View, Text, StyleSheet, Button } from 'react-native';
-// import React from 'react';
-// import { useThemeProvider } from '../../lib/theme/ThemeProvider';
-// import { useTheme } from '@react-navigation/native';
-// import ThemeToggle from '../../components/ThemeToggle';
-// import LanguageSwitcher from '../../components/LanguageSwitcher';
-
-// export default function LoginScreen() {
-//   const { mode, toggleTheme } = useThemeProvider();
-//   const { colors } = useTheme();
-//   return (
-//     <View
-//       style={{
-//         backgroundColor: colors.background,
-//         flex: 1,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//       }}
-//     >
-//       <Text style={{ color: colors.text }}>LoginScreen</Text>
-//       <Text style={styles.text && { color: colors.text }}>
-//         Aktif tema: {mode}
-//       </Text>
-//       <Button
-//         title={mode === 'light' ? "Dark Mode'a Geç" : "Light Mode'a Geç"}
-//         onPress={toggleTheme}
-//       />
-//       <ThemeToggle />
-//       <LanguageSwitcher />
-//     </View>
-//   );
-// }
-// const styles = StyleSheet.create({
-//   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-//   text: { fontSize: 18, marginBottom: 20 },
-// });
-// src/screens/auth/LoginScreen.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -50,13 +13,27 @@ import { useThemeProvider } from '../../lib/theme/ThemeProvider';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 import ThemeToggle from '../../components/ThemeToggle';
 import { useI18n } from '../../languages/I18nProvider';
+import Toast from 'react-native-toast-message';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../../lib/AuthContext';
 
 export default function LoginScreen({ navigation }: any) {
   const { mode } = useThemeProvider();
+  const { setLoggedIn } = useAuth();
   const { colors } = useTheme();
   const { t } = useI18n();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    if (username === 'test' && password === 'test') {
+      await AsyncStorage.setItem('token', 'dummy_token');
+      setLoggedIn(true); // ← Burada AppNavigator yeniden render olacak
+      Toast.show({ type: 'success', text1: t('login.success_title') });
+    } else {
+      Toast.show({ type: 'error', text1: t('login.error_title') });
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -112,6 +89,7 @@ export default function LoginScreen({ navigation }: any) {
 
         <TouchableOpacity
           style={[styles.loginBtn, { backgroundColor: colors.primary }]}
+          onPress={handleLogin}
         >
           <Text style={styles.loginText}>{t('login.button')}</Text>
         </TouchableOpacity>

@@ -25,7 +25,11 @@
     "password": "Parola",
     "button": "Giriş Yap",
     "create_account": "Hesap Oluştur",
-    "forgot_password": "Parolanızı mı unuttunuz?"
+    "forgot_password": "Parolanızı mı unuttunuz?",
+    "error_title": "Giriş Hatası",
+    "error_message": "Kullanıcı adı veya parola yanlış.",
+    "success_title": "Giriş Başarılı",
+    "success_message": "Giriş yapılıyor..."
   },
   "register": {
     "title": "Kayıt Ol",
@@ -35,14 +39,10 @@
     "button": "Kayıt Ol",
     "have_account": "Zaten bir hesabınız var mı? Giriş Yap"
   },
-  "chat": {
-    "title": "Sohbet",
-    "input_placeholder": "Mesajınızı yazın...",
-    "send_button": "Gönder"
-  },
-  "settings": {
-    "title": "Ayarlar",
-    "language": "Dil",
-    "logout": "Çıkış Yap"
+  "bottom_tabs": {
+    "active": "Aktif",
+    "incoming": "Gelen",
+    "outgoing": "Beklediğin",
+    "settings": "Ayarlar"
   }
 }

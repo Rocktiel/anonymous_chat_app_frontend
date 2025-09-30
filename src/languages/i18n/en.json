@@ -25,7 +25,11 @@
     "password": "Password",
     "button": "Login",
     "create_account": "Create Account",
-    "forgot_password": "Forgot password?"
+    "forgot_password": "Forgot password?",
+    "error_title": "Login Error",
+    "error_message": "Invalid username or password.",
+    "success_title": "Login Successful",
+    "success_message": "Logging in..."
   },
   "register": {
     "title": "Register",
@@ -34,5 +38,11 @@
     "confirm_password": "Confirm Password",
     "button": "Register",
     "have_account": "Already have an account? Login"
+  },
+  "bottom_tabs": {
+    "active": "Active",
+    "incoming": "Incoming",
+    "outgoing": "Outgoing",
+    "settings": "Settings"
   }
 }
