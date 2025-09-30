@@ -19,11 +19,13 @@
     "step4_desc": "You're all set up! Log in and continue now!"
   },
   "login": {
-    "title": "Login",
-    "email": "Email",
+    "title": "Welcome",
+    "desc": " Please login to continue",
+    "username": "Username",
     "password": "Password",
     "button": "Login",
-    "no_account": "Don't have an account? Register"
+    "create_account": "Create Account",
+    "forgot_password": "Forgot password?"
   },
   "register": {
     "title": "Register",

@@ -19,11 +19,13 @@
     "step4_desc": "Hemen giriş yap ve devam et!"
   },
   "login": {
-    "title": "Giriş Yap",
-    "email": "E-posta",
+    "title": "Hoş Geldiniz",
+    "desc": " Devam etmek için lütfen giriş yapın",
+    "username": "Kullanıcı Adı",
     "password": "Parola",
     "button": "Giriş Yap",
-    "no_account": "Hesabınız yok mu? Kayıt Ol"
+    "create_account": "Hesap Oluştur",
+    "forgot_password": "Parolanızı mı unuttunuz?"
   },
   "register": {
     "title": "Kayıt Ol",
