@@ -44,5 +44,59 @@
     "incoming": "Gelen",
     "outgoing": "Beklediğin",
     "settings": "Ayarlar"
+  },
+  "incoming_chats": {
+    "title": "Gelen Sohbetler",
+    "no_chats": "Mevcut gelen sohbet yok."
+  },
+  "outgoing_chats": {
+    "title": "Bekleyen Sohbetler",
+    "no_chats": "Mevcut bekleyen sohbet yok."
+  },
+  "active_chats": {
+    "title": "Aktif Sohbetler",
+    "no_chats": "Mevcut aktif sohbet yok."
+  },
+  "chat": {
+    "send_placeholder": "Mesajınızı yazın...",
+    "send_button": "Gönder",
+    "end_chat": "Sohbeti Sonlandır",
+    "confirm_end_title": "Sohbeti Sonlandır",
+    "confirm_end_message": "Bu sohbeti sonlandırmak istediginizden emin misiniz?",
+    "confirm": "Onayla",
+    "cancel": "Iptal"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "language": "Dil",
+    "theme": "Tema",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem Varsayılanı",
+    "notifications": "Bildirimler",
+    "enable_notifications": "Bildirimleri Etkinleştir",
+    "account": "Hesap",
+    "logout": "Çıkış Yap",
+    "confirm_logout_title": "Çıkış Yap",
+    "confirm_logout_message": "Çıkış yapmak istediğinizden emin misiniz?",
+    "confirm": "Onayla",
+    "cancel": "Iptal",
+    "help": "Yardım & Destek",
+    "about": "Uygulama Hakkında",
+    "version": "Versiyon",
+    "privacy": "Gizlilik Politikası",
+    "subscription": "Abonelik"
+  },
+  "no_incoming_chats": {
+    "title": "Henüz Gelen Mesajınız Yok",
+    "desc": "Size yeni mesajlar geldiğinde burada görünecektir."
+  },
+  "no_outgoing_chats": {
+    "title": "Henüz Bekleyen Mesajınız Yok",
+    "desc": "Yeni sohbetler başlattığınızda burada görünecektir."
+  },
+  "no_active_chats": {
+    "title": "Henüz Aktif Sohbetiniz Yok",
+    "desc": "Yeni sohbetler olduğunda burada görünecektir."
   }
 }

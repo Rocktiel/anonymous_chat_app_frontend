@@ -44,5 +44,60 @@
     "incoming": "Incoming",
     "outgoing": "Outgoing",
     "settings": "Settings"
+  },
+  "incoming_chats": {
+    "title": "Incoming Chats",
+    "no_chats": "No incoming chats available."
+  },
+  "outgoing_chats": {
+    "title": "Outgoing Chats",
+    "no_chats": "No outgoing chats available."
+  },
+  "active_chats": {
+    "title": "Active Chats",
+    "no_chats": "No active chats available."
+  },
+  "chat": {
+    "send_placeholder": "Type your message...",
+    "send_button": "Send",
+    "end_chat": "End Chat",
+    "confirm_end_title": "End Chat",
+    "confirm_end_message": "Are you sure you want to end this chat?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "settings": {
+    "title": "Settings",
+    "dark_mode": "Dark Mode",
+    "language": "Language",
+    "logout": "Logout",
+    "confirm_logout_title": "Confirm Logout",
+    "confirm_logout_message": "Are you sure you want to logout?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System Default",
+    "notifications": "Notifications",
+    "enable_notifications": "Enable Notifications",
+    "account": "Account",
+    "help": "Help & Support",
+    "about": "About",
+    "version": "Version",
+    "privacy": "Privacy Policy",
+    "subscription": "Subscription"
+  },
+  "no_incoming_chats": {
+    "title": "You Have No Incoming Chats Yet",
+    "desc": "When you receive new messages, they will appear here."
+  },
+  "no_outgoing_chats": {
+    "title": "You Have No Outgoing Chats Yet",
+    "desc": "When you start new chats, they will appear here."
+  },
+  "no_active_chats": {
+    "title": "You Have No Active Chats Yet",
+    "desc": "When you have ongoing conversations, they will appear here."
   }
 }

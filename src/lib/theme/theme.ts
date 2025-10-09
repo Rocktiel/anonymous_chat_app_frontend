@@ -1,4 +1,3 @@
-// src/theme.ts
 import { DefaultTheme, DarkTheme, Theme } from '@react-navigation/native';
 
 export const LightAppTheme: Theme = {

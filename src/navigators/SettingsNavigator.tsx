@@ -1,13 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import SettingsHome from '../screens/Settings/SettingsHome';
-
-// import AccountScreen from '../screens/Settings/AccountScreen';
-// import NotificationsScreen from '../screens/Settings/NotificationsScreen';
-// import PrivacyScreen from '../screens/Settings/PrivacyScreen';
-// import LanguageScreen from '../screens/Settings/LanguageScreen';
-// import SubscriptionScreen from '../screens/Settings/SubscriptionScreen';
-// import HelpScreen from '../screens/Settings/HelpScreen';
+import AccountScreen from '../screens/Settings/AccountScreen';
+import NotificationsScreen from '../screens/Settings/NotificationsScreen';
+import PrivacyScreen from '../screens/Settings/PrivacyScreen';
+import SubscriptionScreen from '../screens/Settings/SubscriptionScreen';
+import HelpScreen from '../screens/Settings/HelpScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,9 +15,11 @@ export default function SettingsNavigator() {
       <Stack.Screen
         name="SettingsHome"
         component={SettingsHome}
-        options={{ title: 'Ayarlar' }}
+        options={{
+          headerShown: false,
+        }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Account"
         component={AccountScreen}
         options={{ title: 'Hesap' }}
@@ -35,11 +35,6 @@ export default function SettingsNavigator() {
         options={{ title: 'Gizlilik' }}
       />
       <Stack.Screen
-        name="Language"
-        component={LanguageScreen}
-        options={{ title: 'Dil' }}
-      />
-      <Stack.Screen
         name="Subscription"
         component={SubscriptionScreen}
         options={{ title: 'Abonelik' }}
@@ -48,7 +43,7 @@ export default function SettingsNavigator() {
         name="Help"
         component={HelpScreen}
         options={{ title: 'Yardım & Destek' }}
-      /> */}
+      />
     </Stack.Navigator>
   );
 }

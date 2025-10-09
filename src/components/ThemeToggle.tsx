@@ -26,8 +26,8 @@ export default function ThemeToggle() {
 
 const styles = StyleSheet.create({
   container: {
-    width: 48,
-    height: 48,
+    width: 40,
+    height: 40,
     borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
